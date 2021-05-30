@@ -1,3 +1,16 @@
+---
+title: "sawordcloud"
+author: "MO"
+date: "30/05/2021"
+output: html_document
+runtime: shiny
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r , echo=FALSE}
 library(shiny)
 library(shinyscreenshot)
 library(wordcloud2)
@@ -21,7 +34,7 @@ ui <- fluidPage(
                         inputId = "source",
                         label = "Fuente de palabras",
                         choices = c(
-                            "mi texto" = "mitexto",
+                            "Mi texto" = "mitexto",
                             "Elegir archivo" = "file"
                         )
                     ),
@@ -43,7 +56,7 @@ ui <- fluidPage(
                         # The condition should be that the user selects
                         # "file" from the radio buttons
                         condition = "input.source == 'file'",
-                        fileInput("file", "elegir archivo")
+                        fileInput("file", "Elegir archivo")
                     ),
                     hr(),
                     checkboxInput("remove_words", "Quitar palabras específicas", FALSE),
@@ -217,3 +230,5 @@ server <- function(input, output) {
 }
 
 shinyApp(ui = ui, server = server)
+
+```
