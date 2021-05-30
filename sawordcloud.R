@@ -22,7 +22,7 @@ ui <- fluidPage(
                         label = "Fuente de palabras",
                         choices = c(
                             "mi texto" = "mitexto",
-                            "elegir archivo" = "file"
+                            "Elegir archivo" = "file"
                         )
                     ),
                     hr(),
