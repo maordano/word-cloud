@@ -1,0 +1,219 @@
+library(shiny)
+library(shinyscreenshot)
+library(wordcloud2)
+library(tm)
+library(colourpicker)
+
+ui <- fluidPage(
+    h2("Nube de palabras"),
+    h4("> Para capturar imagen usar en navegador y seleccionar con botón derecho captura de pantalla"),
+    #actionButton("go", "Capturar imagen"),
+    #actionButton("screenshot1", "Capture entire page")
+    #actionButton("screenshot2", "Capture plot"),
+    # Create a container for tab panels
+    tabsetPanel(
+        # Create a "Word cloud" tab
+        tabPanel(
+            title = "Nube de palabras",
+            sidebarLayout(
+                sidebarPanel(
+                    radioButtons(
+                        inputId = "source",
+                        label = "Fuente de palabras",
+                        choices = c(
+                            "mi texto" = "mitexto",
+                            "elegir archivo" = "file"
+                        )
+                    ),
+                    hr(),
+                    # Add the selector for the language of the text
+                    selectInput(
+                        inputId = "language",
+                        label = "Seleccionar idioma para quitar 'palabras vacías'",
+                        choices = c("Danish", "Dutch", "English", "Finnish", "French", "German", "Hungarian", "Italian", "Norwegian", "Portuguese", "Russian", "Spanish", "Swedish"),
+                        multiple = FALSE,
+                        selected = "Spanish"
+                    ),
+                    conditionalPanel(
+                        condition = "input.source == 'mitexto'",
+                        textAreaInput("text", "Ingresar texto", rows = 7)
+                    ),
+                    # Wrap the file input in a conditional panel
+                    conditionalPanel(
+                        # The condition should be that the user selects
+                        # "file" from the radio buttons
+                        condition = "input.source == 'file'",
+                        fileInput("file", "elegir archivo")
+                    ),
+                    hr(),
+                    checkboxInput("remove_words", "Quitar palabras específicas", FALSE),
+                    conditionalPanel(
+                        condition = "input.remove_words == 1",
+                        textAreaInput("words_to_remove1", "Words to remove (one per line)", rows = 1)
+                    ),
+                    conditionalPanel(
+                        condition = "input.remove_words == 1 && input.words_to_remove1.length > 0",
+                        textAreaInput("words_to_remove2", "", rows = 1)
+                    ),
+                    conditionalPanel(
+                        condition = "input.remove_words == 1 && input.words_to_remove2.length > 0",
+                        textAreaInput("words_to_remove3", "", rows = 1)
+                    ),
+                    conditionalPanel(
+                        condition = "input.remove_words == 1 && input.words_to_remove3.length > 0",
+                        textAreaInput("words_to_remove4", "", rows = 1)
+                    ),
+                    conditionalPanel(
+                        condition = "input.remove_words == 1 && input.words_to_remove4.length > 0",
+                        textAreaInput("words_to_remove5", "", rows = 1)
+                    ),
+                    conditionalPanel(
+                        condition = "input.remove_words == 1 && input.words_to_remove5.length > 0",
+                        textAreaInput("words_to_remove6", "", rows = 1)
+                    ),
+                    conditionalPanel(
+                        condition = "input.remove_words == 1 && input.words_to_remove6.length > 0",
+                        textAreaInput("words_to_remove7", "", rows = 1)
+                    ),
+                    conditionalPanel(
+                        condition = "input.remove_words == 1 && input.words_to_remove7.length > 0",
+                        textAreaInput("words_to_remove8", "", rows = 1)
+                    ),
+                    conditionalPanel(
+                        condition = "input.remove_words == 1 && input.words_to_remove8.length > 0",
+                        textAreaInput("words_to_remove9", "", rows = 1)
+                    ),
+                    conditionalPanel(
+                        condition = "input.remove_words == 1 && input.words_to_remove9.length > 0",
+                        textAreaInput("words_to_remove10", "", rows = 1)
+                    ),
+                    hr(),
+                    numericInput("num", "Número máximo de palabras",
+                                 value = 5000, min = 5
+                    ),
+                    hr(),
+                    colourInput("col", "Color de fondo", value = "white"),
+                    hr(),
+                    HTML('<p>Reporte un <a href="https://github.com/AntoineSoetewey/word-cloud/issues">bug</a> o vea el <a href="https://github.com/AntoineSoetewey/word-cloud/blob/master/app.R">código</a>. Ir a <a href="https://www.antoinesoetewey.com/">www.antoinesoetewey.com</a>.</p>')
+                ),
+                mainPanel(
+                    wordcloud2Output("cloud"),
+                    # br(),
+                    # br(),
+                    #tags$a(href="https://www.antoinesoetewey.com/", "Back to www.antoinesoetewey.com"),
+                    br(),
+                    br()
+                )
+            )
+        ),
+        # Create an "About this app" tab
+        tabPanel(
+            title = "Sobre esta app",
+            br(),
+            h5(tags$a(href = "https://github.com/maordano/word-cloud", "Modificada por Mariano Ordano"),tags$a(href = "https://www.antoinesoetewey.com/", "a partir de shiny app de Antoine Soetewey")),
+            br(),
+            "Cómo usar esta Shiny app:",
+            br(),
+            br(),
+            HTML("<ul><li>Al subir un archivo, revisar que sea tipo .csv o .txt</li>
+       <li>Si es tipo .csv, debe tener 1 columna con palabras u oraciones en cada fila (ver ejemplo abajo)</li>
+       <li>Números, puntuaciones, palabras vacías (básicamente, conjunciones, artículos, preposiciones y adverbios) se remueven automáticamente, en el idioma elegido</li></ul>"),
+            "Archivos de ejemplo (gracias Antoine Soetewey):",
+            tags$a(href = "https://www.antoinesoetewey.com/files/ihaveadream.csv", "example.csv"),
+            "y",
+            tags$a(href = "https://www.antoinesoetewey.com/files/ihaveadream.txt", "example.txt"),
+            br(),
+            br(),
+            em("Fuente: DataCamp"),
+            br(),
+            br(),
+            #HTML('<p>Report a <a href="https://github.com/AntoineSoetewey/word-cloud/issues">bug</a> or view the <a href="https://github.com/AntoineSoetewey/word-cloud/blob/master/app.R">code</a>. Back to <a href="https://www.antoinesoetewey.com/">www.antoinesoetewey.com</a>.</p>'),
+            br(),
+            br()
+        )
+    )
+)
+
+server <- function(input, output) {
+    #observeEvent(input$screenshot1, {
+    #    screenshot()
+    #})
+    #observeEvent(input$go, {
+    #   screenshot(selector="body",
+    #        filename = "capturashiny",
+    #               id = "",
+    #               scale = 1,
+    #               timer = 0)#selector="body"
+    #})
+    #observeEvent(input$go, {
+    #    screenshot(id = "plot")
+    #})
+
+    data_source <- reactive({
+        if (input$source == "book") {
+            data <- read.csv("twordcloud.txt",
+                             sep = "&",
+                             stringsAsFactors = FALSE
+            )
+            data <- data[, 1]
+        } else if (input$source == "mitexto") {
+            data <- input$text
+        } else if (input$source == "file") {
+            data <- input_file()
+        }
+        return(data)
+    })
+    
+    input_file <- reactive({
+        if (is.null(input$file)) {
+            return("")
+        }
+        readLines(input$file$datapath)
+    })
+    
+    create_wordcloud <- function(data, num_words = 100, background = "white") {
+        
+        # If text is provided, convert it to a dataframe of word frequencies
+        if (is.character(data)) {
+            corpus <- Corpus(VectorSource(data))
+            corpus <- tm_map(corpus, tolower)
+            corpus <- tm_map(corpus, removePunctuation)
+            corpus <- tm_map(corpus, removeNumbers)
+            corpus <- tm_map(corpus, removeWords, stopwords(tolower(input$language)))
+            corpus <- tm_map(corpus, removeWords, c(input$words_to_remove1))
+            corpus <- tm_map(corpus, removeWords, c(input$words_to_remove2))
+            corpus <- tm_map(corpus, removeWords, c(input$words_to_remove3))
+            corpus <- tm_map(corpus, removeWords, c(input$words_to_remove4))
+            corpus <- tm_map(corpus, removeWords, c(input$words_to_remove5))
+            corpus <- tm_map(corpus, removeWords, c(input$words_to_remove6))
+            corpus <- tm_map(corpus, removeWords, c(input$words_to_remove7))
+            corpus <- tm_map(corpus, removeWords, c(input$words_to_remove8))
+            corpus <- tm_map(corpus, removeWords, c(input$words_to_remove9))
+            corpus <- tm_map(corpus, removeWords, c(input$words_to_remove10))
+            tdm <- as.matrix(TermDocumentMatrix(corpus))
+            data <- sort(rowSums(tdm), decreasing = TRUE)
+            data <- data.frame(word = names(data), freq = as.numeric(data))
+        }
+        
+        # Make sure a proper num_words is provided
+        if (!is.numeric(num_words) || num_words < 3) {
+            num_words <- 3
+        }
+        
+        # Grab the top n most common words
+        data <- head(data, n = num_words)
+        if (nrow(data) == 0) {
+            return(NULL)
+        }
+        
+        wordcloud2(data, backgroundColor = background)
+    }
+    output$cloud <- renderWordcloud2({
+        create_wordcloud(data_source(),
+                         num_words = input$num,
+                         background = input$col
+        )
+    })
+}
+
+shinyApp(ui = ui, server = server)

@@ -1,0 +1,93 @@
+Cantidad de variables y datos en una base
+Cantidad necesaria de datos para contestar una pregunta o alcanzar un objetivo
+Carga de datos en una base y posterior uso en un análisis
+Ciclo de indagación
+Clasificación y ordenamiento de variables en una base
+Datos faltantes o perdidos en una base de datos
+Defaunación
+Definición de variables, conjuntos, grupos o estratos
+Desigualdad de muestras entre grupos a comparar
+Diferencias y similitudes entre efectos, impactos e influencias
+Diseño de bases de datos
+Diseño de investigación
+Diseño de muestreo
+Diseño de reporte de investigación
+Diseño experimental
+Ecología
+Ecología del Antropoceno
+Ecología del paisaje
+Ecología evolutiva
+Ecología política
+Ecología social
+Elaboración, clasificación, análisis o interpretación de índices
+Elaboración de hipótesis y predicciones
+Elaboración y gestión de proyectos
+Entendimiento de los análisis
+Escala del estudio
+Escala espacial a la cual responden los organismos de estudio
+Escala temporal a la cual responden los organismos de estudio
+Escritura de reportes de investigación
+Evolución
+Exceso de datos
+Explicación sobre cómo se hace un análisis
+Falta de tamaño de muestra
+Gestión del tiempo
+Gráficos para sintetizar información
+Hipótesis de estudio e hipótesis estadística
+Holoceno
+Identificación de la hipótesis
+Identificación del tema de estudio en relación a otros temas
+Implementación de análisis en un programa
+Implementación de gráficos en un programa
+Indicadores ambientales
+Interpretación de resultados (incluye gráficos y tablas)
+Juegos para enseñanza del manejo de datos
+Kruskal-Wallis, k-means y n asuntos desconocidos
+Likelihood o máxima verosimilitud
+Manejo de vida silvestre
+Mezcla de tipos de variables en análisis
+Modelos conceptuales y modelos estadísticos
+Monitoreo de biodiversidad
+Navegación en internet para la detección de soluciones a problemas con datos
+Obtención de datos a partir de publicaciones
+Organización de bases de datos
+Organización de tablas para sintetizar información
+Predicciones
+Presentación de gráficos y tablas
+Pseudo-replicación y replicación
+Quién sabe cuántas lagunas y asuntos que no terminan de cuajar
+Relación entre biología y estadística
+Relación entre disciplinas científicas
+Relación entre diseño y análisis
+Relación entre ecología de poblaciones, comunidades y ecosistemas
+Relación entre hipótesis y diseño
+Relación entre resultados en oraciones, en tablas y en gráficos
+Relación entre temas de investigación
+Repetibilidad
+Reproducibilidad
+Restauración ecológica
+Resultados contradictorios
+Resultados no significativos
+Reticencia a la escritura
+Reticencia al análisis de datos
+Reticencia al manejo de bases
+Riesgo sistémico
+Selección del análisis adecuado
+Selección de modelos entre varios posibles
+Selección de variables a medir
+Selección de variables medidas
+Síntesis o resúmenes de información
+Socio-ecología
+Solución de problemas de mi estudio (y no hay más muestras...)
+Tasa de cambio ambiental
+Tasa de obtención de datos muy baja
+Temor de hacer un análisis inadecuado
+Temor de interpretar de manera inadecuada los datos
+Temor de no descubrir algo interesante
+Transición forestal
+Unidad de muestreo y unidad experimental
+Valor de probabilidad cercano y mayor a 0.05
+Variables que varían mucho y/o variables que varían poco
+Variables que se relacionan significativamente entre sí
+Verificabilidad
+
