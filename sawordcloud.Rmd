@@ -1,8 +1,4 @@
 ---
-yml() %>%
-  # keep intermediate files
-  yml_clean(FALSE)
----
 title: "sawordcloud"
 author: "Mariano Ordano a partir de antoinesoetewey.com"
 date: "30/05/2021"
@@ -11,11 +7,11 @@ runtime: shiny
 clean: false
 ---
 
-```{r setup, include=FALSE, message=FALSE}
+```{r setup, include=FALSE, message=FALSE, warning=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-```{r , echo=FALSE, warning=FALSE}
+```{r , echo=FALSE, warning=FALSE, message=FALSE}
 library(shiny)
 library(shinyscreenshot)
 library(wordcloud2)
