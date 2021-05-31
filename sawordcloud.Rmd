@@ -10,7 +10,7 @@ runtime: shiny
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-```{r , echo=FALSE}
+```{r , echo=FALSE, warning=FALSE}
 library(shiny)
 library(shinyscreenshot)
 library(wordcloud2)
